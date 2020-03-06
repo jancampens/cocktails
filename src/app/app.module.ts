@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CocktailDetailComponent } from './components/cocktail-detail/cocktail-detail.component';
 import { CocktailSearchComponent } from './components/cocktail-search/cocktail-search.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CocktailDetailComponent,
-    CocktailSearchComponent
+    CocktailSearchComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
