@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CocktailDetailComponent } from './components/cocktail-detail/cocktail-detail.component';
+import { CocktailSearchComponent } from './components/cocktail-search/cocktail-search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CocktailDetailComponent,
+    CocktailSearchComponent
   ],
   imports: [
     BrowserModule,
