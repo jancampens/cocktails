@@ -1,1 +1,13 @@
 <router-outlet></router-outlet>
+
+<div *ngIf="mode === 'search'">
+    <h1>Search by Name</h1>
+    <button (click)="mode = 'filter'">go to filter</button>
+    <app-cocktail-search></app-cocktail-search>
+</div>
+
+<div *ngIf="mode === 'filter'">
+    <h1>Filter by Ingredients</h1>
+    <button (click)="mode = 'search'">go to search</button>
+    <app-ingredient-search></app-ingredient-search>
+</div>
