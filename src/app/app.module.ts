@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CocktailDetailComponent } from './components/cocktail-detail/cocktail-detail.component';
 import { CocktailSearchComponent } from './components/cocktail-search/cocktail-search.component';
-import { HomeComponent } from './components/home/home.component';
 import { IngredientSearchComponent } from './components/ingredient-search/ingredient-search.component';
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
 
@@ -17,7 +16,6 @@ import { CocktailListComponent } from './components/cocktail-list/cocktail-list.
     AppComponent,
     CocktailDetailComponent,
     CocktailSearchComponent,
-    HomeComponent,
     IngredientSearchComponent,
     CocktailListComponent
   ],
