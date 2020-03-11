@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CocktailDetailComponent } from './components/cocktail-detail/cocktail-detail.component';
 import { CocktailSearchComponent } from './components/cocktail-search/cocktail-search.component';
 import { HomeComponent } from './components/home/home.component';
+import { IngredientSearchComponent } from './components/ingredient-search/ingredient-search.component';
+import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     CocktailDetailComponent,
     CocktailSearchComponent,
-    HomeComponent
+    HomeComponent,
+    IngredientSearchComponent,
+    CocktailListComponent
   ],
   imports: [
     BrowserModule,

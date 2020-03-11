@@ -1,0 +1,18 @@
+<div id="search-component">
+    <h4><label for="search-box">Ingredient Search</label></h4>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <ul class="search-result">
+        <li *ngFor="let ingredient of filteredIngredients">
+            <p (click)="addIngredient(ingredient)">{{ingredient.strIngredient1}}</p>
+        </li>
+    </ul>
+</div>
+
+<div id="chips">
+    <p class="chip" *ngFor="let ingredient of selectedIngredients" (click)="removeIngredient(ingredient)">
+        {{ingredient}}
+    </p>
+</div>
+
+<app-cocktail-list [cocktails]="cocktails"></app-cocktail-list>
