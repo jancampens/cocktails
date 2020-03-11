@@ -38,7 +38,17 @@ export class CocktailService {
       );
   }
 
-  getIngredients(): Observable<Ingredient> {
-    return this.http.get<Ingredient>(`${this.cocktailsUrl}/lookup.php?i=list`);
+  searchCocktailsByIngredients(ingredients: string): Observable<any> {
+    return this.http.get<any>(`${this.cocktailsUrl}/filter.php?i=${ingredients}`)
+      .pipe(
+        map(res => res.drinks)
+      );
+  }
+
+  getIngredients(): Observable<any> {
+    return this.http.get<any>(`${this.cocktailsUrl}/list.php?i=list`)
+      .pipe(
+        map(res => res.drinks)
+      );
   }
 }
