@@ -1,11 +1,11 @@
 <div id="search-component">
-    <h4><label for="search-box">Cocktail Search</label></h4>
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
   
     <ul class="search-result">
       <li *ngFor="let cocktail of cocktails$ | async" >
         <a routerLink="/detail/{{cocktail.idDrink}}">
           {{cocktail.strDrink}}
+          <img width=100 height= 100 src="{{cocktail.strDrinkThumb}}" alt="">
         </a>
       </li>
     </ul>
