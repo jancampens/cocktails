@@ -9,6 +9,7 @@ import { CocktailDetailComponent } from './components/cocktail-detail/cocktail-d
 import { CocktailSearchComponent } from './components/cocktail-search/cocktail-search.component';
 import { IngredientSearchComponent } from './components/ingredient-search/ingredient-search.component';
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CocktailListComponent } from './components/cocktail-list/cocktail-list.
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
