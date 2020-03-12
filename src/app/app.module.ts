@@ -11,6 +11,8 @@ import { IngredientSearchComponent } from './components/ingredient-search/ingred
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MaterialModule } from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
