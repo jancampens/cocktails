@@ -12,7 +12,7 @@ export class CocktailListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.cocktails);
+    // console.log(this.cocktails);
   }
 
 }
