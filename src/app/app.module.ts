@@ -23,7 +23,7 @@ import { MaterialModule } from './material.module';
     CocktailDetailComponent,
     CocktailSearchComponent,
     IngredientSearchComponent,
-    CocktailListComponent
+    CocktailListComponent,
   ],
   imports: [
     BrowserModule,
