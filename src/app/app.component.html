@@ -1,13 +1,19 @@
-<router-outlet></router-outlet>
+<div #viewCocktails id="container-1">
+    <app-background></app-background>
 
-<div *ngIf="mode === 'search'">
-    <h1>Search by Name</h1>
-    <button (click)="mode = 'filter'">go to filter</button>
+    <router-outlet></router-outlet>
     <app-cocktail-search></app-cocktail-search>
 </div>
 
-<div *ngIf="mode === 'filter'">
-    <h1>Filter by Ingredients</h1>
-    <button (click)="mode = 'search'">go to search</button>
-    <app-ingredient-search></app-ingredient-search>
+<div id="arrow" (click)="onArrowClick()">
+    <img
+        id="arrow-image"
+        src="assets/images/scroll-down-arrow.png"
+        alt=""
+        [ngStyle]="{'transform': (view == 'ingredients') ? 'rotate(180deg)' : ''}">
+</div>
+
+<div #viewIngredients id="container-2" fxLayout="row">
+    <app-ingredient-search (cocktails)="renderCocktails($event)"></app-ingredient-search>
+    <app-cocktail-list [cocktails]="cocktails" class="test"></app-cocktail-list>
 </div>

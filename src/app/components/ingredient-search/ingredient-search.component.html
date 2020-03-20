@@ -1,17 +1,29 @@
-<div id="search-component">
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+<div id="container" fxLayout="column">
+    <h1 class="title mat-display-4">Ingredients</h1>
+    
+    <div id="search">
+        <input #searchBox class="search-box" (input)="search(searchBox.value)" (focus)="setFocus(true)"
+            (blur)="setFocus(false)" autocomplete="off" placeholder="Search" />
 
-    <ul class="search-result">
-        <li *ngFor="let ingredient of filteredIngredients">
-            <p (click)="addIngredient(ingredient)">{{ingredient.strIngredient1}}</p>
-        </li>
-    </ul>
+        <ul class="search-results" *ngIf="focused">
+            <li *ngFor="let ingredient of filteredIngredients">
+                <div class="search-result" (mousedown)="addIngredient(ingredient)">
+                    {{ingredient.strIngredient1}}
+                </div>
+            </li>
+        </ul> 
+    </div>
+
+    <div id="ingredients" fxLayout="column" fxGrow>
+        <div
+            class="ingredient"
+            *ngFor="let ingredient of selectedIngredients"
+            (click)="removeIngredient(ingredient)"
+            fxFlex="noshrink"
+            fxLayout="row"
+        >
+            <img class="image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient + '.png'" alt="">
+            <div class="label">{{ingredient}}</div>
+        </div>
+    </div>
 </div>
-
-<div id="chips">
-    <p class="chip" *ngFor="let ingredient of selectedIngredients" (click)="removeIngredient(ingredient)">
-        {{ingredient}}
-    </p>
-</div>
-
-<app-cocktail-list [cocktails]="cocktails"></app-cocktail-list>

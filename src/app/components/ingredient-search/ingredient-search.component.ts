@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { CocktailService } from '../../cocktail.service';
 
@@ -10,17 +10,26 @@ import { Ingredient } from '../../interfaces/ingredient';
   styleUrls: ['./ingredient-search.component.css']
 })
 export class IngredientSearchComponent implements OnInit {
-  cocktails = [];
   filteredIngredients: Ingredient[];
   ingredients: Ingredient[];
-  selectedIngredients = [];
-
+  selectedIngredients = ['Light Rum', 'Lime Juice', 'Sugar'];
+  focused = false;
+  @Output() cocktails = new EventEmitter<string[]>();
+  
   constructor(
     private cocktailService: CocktailService
   ) { }
 
+  setFocus(value) {
+    this.focused = value;
+  }
+
   search(term: string): void {
-    this.filteredIngredients = this.ingredients.filter(x => x.strIngredient1.toLowerCase().includes(term.toLowerCase()));
+    if (term.length > 0) {
+      this.filteredIngredients = this.ingredients.filter(x => x.strIngredient1.toLowerCase().includes(term.toLowerCase()));
+    } else {
+      this.filteredIngredients = []
+    }
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -30,15 +39,24 @@ export class IngredientSearchComponent implements OnInit {
     }
   }
 
-  removeIngredient(chip) {
+  removeIngredient(chip: string) {
     this.selectedIngredients.splice(this.selectedIngredients.indexOf(chip), 1);
-    this.searchCocktails(this.selectedIngredients.join(','));
+    if (this.selectedIngredients.length > 0) {
+      this.searchCocktails(this.selectedIngredients.join(','));
+    } else {
+      this.cocktails.emit([])
+    }
   }
 
   searchCocktails(ingredients: string) {
     this.cocktailService.searchCocktailsByIngredients(ingredients)
       .subscribe(cocktails => {
-        this.cocktails = cocktails !== 'None Found' ? cocktails : [];
+        if (cocktails === 'None Found') {
+          this.cocktails.emit([])
+        } else {
+          console.log(cocktails.length, 'cocktails found for ingredients', ingredients, cocktails)
+          this.cocktails.emit(cocktails)
+        }
       });
   }
 
@@ -46,6 +64,8 @@ export class IngredientSearchComponent implements OnInit {
     this.cocktailService.getIngredients()
       .subscribe(ingredients => {
         this.ingredients = ingredients;
+
+        this.searchCocktails(this.selectedIngredients.join(','));
       });
   }
 

@@ -1,12 +1,18 @@
-<div id="search-component">
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  
-    <ul class="search-result">
-      <li *ngFor="let cocktail of cocktails$ | async" >
-        <a routerLink="/detail/{{cocktail.idDrink}}">
-          {{cocktail.strDrink}}
-          <img width=100 height= 100 src="{{cocktail.strDrinkThumb}}" alt="">
-        </a>
-      </li>
+<div id="container" fxLayout="column" fxLayoutAlign="center center">
+
+    <div class="title mat-display-4">Cocktails</div>
+    <input 
+        #searchBox
+        class="search-box"
+        (input)="search(searchBox.value)"
+        autocomplete="off"
+        placeholder="Search" />
+
+    <ul class="search-results">
+        <li *ngFor="let cocktail of cocktails$ | async">
+            <div class="search-result">
+                {{cocktail.strDrink}}
+            </div>
+        </li>
     </ul>
-  </div>
+</div>

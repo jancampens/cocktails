@@ -1,3 +1,9 @@
-<div class="image" [style.backgroundImage]="backgroundImage"> </div>
-<p class="quote">{{quote}}</p>
-<p class="cite">{{cite}}</p>
+<div
+    [className]="fade ? 'image fade' : 'image'"
+    [style.backgroundImage]="backgroundImage">
+</div>
+
+<div id="quote" fxLayout="column">
+    <p class="text">{{quote}}</p>
+    <p class="cite">{{cite}}</p>
+</div>

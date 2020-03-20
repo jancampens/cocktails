@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import  *  as  quotes  from  'src/assets/quotes.json';
+import *  as  quotes from 'src/assets/quotes.json';
 
 @Component({
   selector: 'app-background',
@@ -9,9 +9,10 @@ import  *  as  quotes  from  'src/assets/quotes.json';
 })
 export class BackgroundComponent implements OnInit {
   backgroundImage: string;
-  quotes:  any  = (quotes  as  any).default;
+  quotes: any = (quotes as any).default;
   quote: string;
   cite: string;
+  fade = false;
   images = [
     'aperol',
     'cosmopolitan',
@@ -30,13 +31,21 @@ export class BackgroundComponent implements OnInit {
     this.setContent(0);
 
     setInterval(() => {
+      this.fade = true;
+
       if (index < this.images.length - 1) {
         index++;
       } else {
         index = 0;
       };
 
-      this.setContent(index);
+      setTimeout(() => {
+        this.setContent(index);
+      }, 500)
+
+      setTimeout(() => {
+        this.fade = false;
+      }, 500)
     }, 8000);
   }
 
@@ -44,5 +53,9 @@ export class BackgroundComponent implements OnInit {
     this.backgroundImage = `url('../../assets/images/backgrounds/${this.images[index]}.jpg')`
     this.quote = `“${this.quotes[index].quote}”`;
     this.cite = `— ${this.quotes[index].cite}`;
+  }
+
+  fadeImage() {
+    this.fade = true;
   }
 }

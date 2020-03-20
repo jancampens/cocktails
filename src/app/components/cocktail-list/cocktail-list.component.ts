@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Cocktail } from '../../interfaces/cocktail';
 
@@ -7,12 +7,7 @@ import { Cocktail } from '../../interfaces/cocktail';
   templateUrl: './cocktail-list.component.html',
   styleUrls: ['./cocktail-list.component.css']
 })
-export class CocktailListComponent implements OnInit {
+export class CocktailListComponent {
   @Input() cocktails: Cocktail[];
   constructor() { }
-
-  ngOnInit(): void {
-    // console.log(this.cocktails);
-  }
-
 }

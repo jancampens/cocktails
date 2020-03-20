@@ -1,6 +1,4 @@
-<div class="container">
-    <!-- <a *ngFor="let cocktail of cocktails" routerLink="/detail/{{cocktail.idDrink}}">{{cocktail.strDrink}}</a> -->
-
+<div class="container" fxLayout="row wrap" fxLayoutGap="20px">
     <div class="card" *ngFor="let cocktail of cocktails">
         <div class="card-image" [style.backgroundImage]="'url(' + cocktail.strDrinkThumb + ')'"></div>
         <div class="card-header">
