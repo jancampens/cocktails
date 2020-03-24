@@ -7,5 +7,6 @@ export interface Cocktail {
     strAlcoholic: string;
     strGlass: string;
     strInstructions: string;
+    strDrinkThumb: string;
     ingredients: Array<{name: string, measure: string}>;
 }
