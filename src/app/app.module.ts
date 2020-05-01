@@ -15,6 +15,8 @@ import { CocktailListComponent } from './components/cocktail-list/cocktail-list.
 
 import { MaterialModule } from './material.module';
 
+import {OverlayModule} from '@angular/cdk/overlay';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
