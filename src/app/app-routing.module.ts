@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CocktailDetailComponent } from './components/cocktail-detail/cocktail-detail.component';
 
 const routes: Routes = [
-  { path: 'detail/:id', component: CocktailDetailComponent },
+  { path: ':id', component: CocktailDetailComponent },
 ];
 
 @NgModule({
