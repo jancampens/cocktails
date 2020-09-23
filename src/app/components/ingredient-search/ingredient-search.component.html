@@ -1,9 +1,16 @@
 <div id="container" fxLayout="column">
     <h1 class="title mat-display-4">Ingredients</h1>
     
-    <div id="search">
-        <input #searchBox class="search-box" (input)="search(searchBox.value)" (focus)="setFocus(true)"
-            (blur)="setFocus(false)" autocomplete="off" placeholder="Search" />
+    <div id="search" (focusout)="setFocus(false)" tabindex="0" >
+        <input
+            #searchBox
+            class="search-box"
+            (input)="search(searchBox.value)"
+            (focus)="setFocus(true)"
+            (blur)="onBlurEvent($event)"
+            autocomplete="off"
+            placeholder="Search"
+            tabindex="1"/>
 
         <ul class="search-results" *ngIf="focused">
             <li *ngFor="let ingredient of filteredIngredients">

@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
-import { CocktailService } from '../../cocktail.service';
+import { CocktailService } from '../../services/cocktail.service';
 
 import { Ingredient } from '../../interfaces/ingredient';
 
@@ -9,18 +9,31 @@ import { Ingredient } from '../../interfaces/ingredient';
   templateUrl: './ingredient-search.component.html',
   styleUrls: ['./ingredient-search.component.css']
 })
-export class IngredientSearchComponent implements OnInit {
+export class IngredientSearchComponent {
   filteredIngredients: Ingredient[];
   ingredients: Ingredient[];
-  selectedIngredients = ['Light Rum', 'Lime Juice', 'Sugar'];
+  // selectedIngredients = ['Light Rum', 'Lime Juice', 'Sugar'];
+  selectedIngredients = []
   focused = false;
   @Output() cocktails = new EventEmitter<string[]>();
   
   constructor(
     private cocktailService: CocktailService
   ) { }
+  
+  ngOnInit() {
+    this.cocktailService.getIngredients()
+      .subscribe(ingredients => {
+        this.ingredients = ingredients;
+      });
+  }
+
+  onBlurEvent(event: any){
+    console.log(event.target.value);
+  }
 
   setFocus(value) {
+    console.log('setfocus', value)
     this.focused = value;
   }
 
@@ -59,14 +72,4 @@ export class IngredientSearchComponent implements OnInit {
         }
       });
   }
-
-  ngOnInit(): void {
-    this.cocktailService.getIngredients()
-      .subscribe(ingredients => {
-        this.ingredients = ingredients;
-
-        this.searchCocktails(this.selectedIngredients.join(','));
-      });
-  }
-
 }
