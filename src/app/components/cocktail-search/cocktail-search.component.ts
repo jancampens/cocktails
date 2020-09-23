@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { Cocktail } from '../../interfaces/cocktail';
-import { CocktailService } from '../../cocktail.service';
+import { CocktailService } from '../../services/cocktail.service';
 
 @Component({
   selector: 'app-cocktail-search',

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Cocktail } from '../../interfaces/cocktail';
-import { CocktailService } from '../../cocktail.service';
+import { CocktailService } from '../../services/cocktail.service';
 
 @Component({
   selector: 'app-cocktail-detail',
