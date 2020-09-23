@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 
@@ -14,6 +14,7 @@ import { CocktailService } from '../../cocktail.service';
 })
 export class CocktailSearchComponent implements OnInit {
   cocktails$: Observable<Cocktail[]>;
+  @Output() cocktailClick = new EventEmitter();
   private searchTerms = new Subject<string>();
 
 
