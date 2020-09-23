@@ -11,6 +11,7 @@ import { CocktailService } from '../../cocktail.service';
 })
 export class CocktailDetailComponent implements OnInit {
   @Input() cocktail: Cocktail;
+  ingredients = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -18,13 +19,23 @@ export class CocktailDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCocktail();
+    this.getCocktail(11007);
   }
 
-  getCocktail(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+  getCocktail(id: number): void {
     this.cocktailService.getCocktail(id.toString())
-      .subscribe(cocktail => this.cocktail = cocktail);
+      .subscribe(cocktail => {
+        console.log(cocktail)
+        this.cocktail = cocktail
+        for (let i = 1; i < 16; i++) {
+          if (cocktail[`strIngredient${i}`] !== null) {
+            this.ingredients.push({
+              name: cocktail[`strIngredient${i}`],
+              measurement: cocktail[`strMeasure${i}`]
+            })
+          }
+        }
+      })
   }
 
 }

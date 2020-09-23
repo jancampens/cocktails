@@ -1,4 +1,13 @@
-<div *ngIf="cocktail">
-    <p>{{cocktail.strDrink}}</p>
-    <img width=400 height=400 src={{cocktail.strDrinkThumb}}>
+<div id="container" >
+    <div *ngIf="cocktail" fxFlexFill fxLayout="row">
+        <div id="left" flex>
+            <h1 class="title">{{cocktail.strDrink}}</h1>
+            <p class="instructions">{{cocktail.strInstructions}}</p>
+            <h2 class="subtitle">Ingredients</h2>
+            <span *ngFor="let ingredient of ingredients">
+                <p>{{ingredient.measurement}} {{ingredient.name}}</p>
+            </span>
+        </div>
+        <div id="right" flex [style.backgroundImage]="'url(' + cocktail.strDrinkThumb + ')'"></div>
+    </div>
 </div>
