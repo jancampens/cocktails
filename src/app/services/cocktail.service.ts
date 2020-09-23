@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Ingredient } from './interfaces/ingredient';
+import { Ingredient } from '../interfaces/ingredient';
 
 @Injectable({
   providedIn: 'root'
