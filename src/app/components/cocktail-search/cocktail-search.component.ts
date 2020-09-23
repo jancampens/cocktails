@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 
@@ -14,7 +14,6 @@ import { CocktailService } from '../../services/cocktail.service';
 })
 export class CocktailSearchComponent implements OnInit {
   cocktails$: Observable<Cocktail[]>;
-  @Output() cocktailClick = new EventEmitter();
   private searchTerms = new Subject<string>();
   focused = false;
 
@@ -25,10 +24,10 @@ export class CocktailSearchComponent implements OnInit {
   search(term: string): void {
     this.searchTerms.next(term);
   }
-  
-  setFocus(value:boolean){
+
+  setFocus(value: boolean) {
     this.focused = value;
- }
+  }
 
   ngOnInit(): void {
     this.cocktails$ = this.searchTerms.pipe(
