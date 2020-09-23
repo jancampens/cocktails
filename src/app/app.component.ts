@@ -19,10 +19,10 @@ export class AppComponent {
   onArrowClick(): void {
     if (this.view === 'cocktails') {
       this.viewIngredients.nativeElement.scrollIntoView({ behavior: 'smooth' });
-      this.view = 'ingredients'
+      this.view = 'ingredients';
     } else {
       this.viewCocktails.nativeElement.scrollIntoView({ behavior: 'smooth' });
-      this.view = 'cocktails'
+      this.view = 'cocktails';
     }
   }
 
