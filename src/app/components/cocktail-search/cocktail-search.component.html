@@ -7,14 +7,19 @@
             class="search-box"
             (input)="search(searchBox.value)"
             autocomplete="off"
-            placeholder="Search" />
+            placeholder="Search"
+            (blur)="setFocus(false)"
+            (focus)="setFocus(true)"
+            />
 
         <ul class="search-results">
-            <li *ngFor="let cocktail of cocktails$ | async" (click)="cocktailClick.emit(cocktail.idDrink)">
-                <div class="search-result">
-                    {{cocktail.strDrink}}
-                </div>
-            </li>
+            <ng-container *ngIf="focused">
+                <li *ngFor="let cocktail of cocktails$ | async" (click)="cocktailClick.emit(cocktail.idDrink)">
+                    <div class="search-result">
+                        {{cocktail.strDrink}}
+                    </div>
+                </li>
+            </ng-container>
         </ul>
     </div>
 </div>
