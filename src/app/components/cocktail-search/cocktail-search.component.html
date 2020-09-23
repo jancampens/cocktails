@@ -1,20 +1,21 @@
 <div id="container" fxLayout="column" fxLayoutAlign="center center">
 
     <div class="title mat-display-4">Cocktails</div>
-    <div class="wrapper">
+
+    <div 
+        class="wrapper">
+
         <input 
             #searchBox
             class="search-box"
             (input)="search(searchBox.value)"
             autocomplete="off"
             placeholder="Search"
-            (blur)="setFocus(false)"
-            (focus)="setFocus(true)"
-            />
+        />
 
         <ul class="search-results">
             <ng-container *ngIf="focused">
-                <li *ngFor="let cocktail of cocktails$ | async" (click)="cocktailClick.emit(cocktail.idDrink)">
+                <li *ngFor="let cocktail of cocktails$ | async" routerLink="{{cocktail.idDrink}}">
                     <div class="search-result">
                         {{cocktail.strDrink}}
                     </div>
@@ -22,4 +23,5 @@
             </ng-container>
         </ul>
     </div>
+
 </div>

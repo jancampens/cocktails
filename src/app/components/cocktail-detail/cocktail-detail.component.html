@@ -5,10 +5,13 @@
             <div id="left" flex>
                 <h1 class="title">{{cocktail.strDrink}}</h1>
                 <p class="instructions">{{cocktail.strInstructions}}</p>
-                <h2 class="subtitle">Ingredients</h2>
-                <span *ngFor="let ingredient of ingredients">
-                    <p>{{ingredient.measurement}} {{ingredient.name}}</p>
-                </span>
+                <div class="ingredient" *ngFor="let ingredient of ingredients" fxLayout="row">
+                    <img class="ingredient-image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient.name + '.png'" alt="">
+                    <div fxLayout="column">
+                        <p class="ingredient-name">{{ingredient.name}}</p>
+                        <p class="ingredient-measurement">{{ingredient.measurement}}</p>
+                    </div>
+                </div>
             </div>
             <div id="right" flex [style.backgroundImage]="'url(' + cocktail.strDrinkThumb + ')'"></div>
         </div>
