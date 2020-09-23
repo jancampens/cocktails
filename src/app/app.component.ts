@@ -12,15 +12,16 @@ export class AppComponent {
   title = 'cocktails';
   cocktails: Cocktail[];
   view = 'cocktails';
+
   @ViewChild('viewCocktails') viewCocktails: ElementRef;
   @ViewChild('viewIngredients') viewIngredients: ElementRef;
 
   onArrowClick(): void {
     if (this.view === 'cocktails') {
-      this.viewIngredients.nativeElement.scrollIntoView({behavior: 'smooth'}); 
+      this.viewIngredients.nativeElement.scrollIntoView({ behavior: 'smooth' });
       this.view = 'ingredients'
     } else {
-      this.viewCocktails.nativeElement.scrollIntoView({behavior: 'smooth'}); 
+      this.viewCocktails.nativeElement.scrollIntoView({ behavior: 'smooth' });
       this.view = 'cocktails'
     }
   }
