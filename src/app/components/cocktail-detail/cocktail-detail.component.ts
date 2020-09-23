@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Cocktail } from '../../interfaces/cocktail';
@@ -9,23 +9,30 @@ import { CocktailService } from '../../services/cocktail.service';
   templateUrl: './cocktail-detail.component.html',
   styleUrls: ['./cocktail-detail.component.css']
 })
-export class CocktailDetailComponent implements OnInit {
+export class CocktailDetailComponent implements OnInit, OnDestroy {
   @Input() cocktail: Cocktail;
   ingredients = [];
 
   constructor(
     private route: ActivatedRoute,
-    private cocktailService: CocktailService
-  ) { }
-
-  ngOnInit(): void {
-    this.getCocktail(11007);
+    private cocktailService: CocktailService,
+    private renderer: Renderer2
+  ) {
+    this.renderer.addClass(document.body, 'modal-open');
   }
 
-  getCocktail(id: number): void {
+  ngOnInit(): void {
+    this.getCocktail();
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeClass(document.body, 'modal-open');
+  }
+
+  getCocktail(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
     this.cocktailService.getCocktail(id.toString())
       .subscribe(cocktail => {
-        console.log(cocktail)
         this.cocktail = cocktail
         for (let i = 1; i < 16; i++) {
           if (cocktail[`strIngredient${i}`] !== null) {
