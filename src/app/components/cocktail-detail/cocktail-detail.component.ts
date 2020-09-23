@@ -35,7 +35,8 @@ export class CocktailDetailComponent implements OnInit, OnDestroy {
       .subscribe(cocktail => {
         this.cocktail = cocktail
         for (let i = 1; i < 16; i++) {
-          if (cocktail[`strIngredient${i}`] !== null) {
+          const ingredientName = cocktail[`strIngredient${i}`];
+          if (ingredientName !== null && ingredientName !== '') {
             this.ingredients.push({
               name: cocktail[`strIngredient${i}`],
               measurement: cocktail[`strMeasure${i}`]
