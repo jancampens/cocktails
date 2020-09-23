@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Cocktail } from '../../interfaces/cocktail';
 
@@ -9,5 +9,5 @@ import { Cocktail } from '../../interfaces/cocktail';
 })
 export class CocktailListComponent {
   @Input() cocktails: Cocktail[];
-  constructor() { }
+  @Output() cocktailClick = new EventEmitter();
 }
