@@ -11,6 +11,10 @@ body {
     height: 190%;
 }
 
+.modal-open {
+    overflow: hidden;
+}
+
 ::-webkit-scrollbar {
     background-color: #fff;
     width: 16px
