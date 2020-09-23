@@ -1,7 +1,5 @@
 <div #viewCocktails id="container-1">
     <app-background></app-background>
-
-    <router-outlet></router-outlet>
     <app-cocktail-search></app-cocktail-search>
 </div>
 
@@ -17,3 +15,5 @@
     <app-ingredient-search (cocktails)="renderCocktails($event)"></app-ingredient-search>
     <app-cocktail-list [cocktails]="cocktails" class="test"></app-cocktail-list>
 </div>
+
+<router-outlet></router-outlet>
