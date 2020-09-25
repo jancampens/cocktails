@@ -24,6 +24,7 @@
     right: 100px;
     bottom: 0;
     font-family: 'Gentium Book Basic', serif;
+    z-index: -1;
 }
 
 .text {
