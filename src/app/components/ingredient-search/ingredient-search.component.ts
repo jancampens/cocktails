@@ -62,7 +62,6 @@ export class IngredientSearchComponent {
         if (cocktails === 'None Found') {
           this.cocktails.emit([])
         } else {
-          console.log(cocktails.length, 'cocktails found for ingredients', ingredients, cocktails)
           this.cocktails.emit(cocktails)
         }
       });
