@@ -9,6 +9,7 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     height: 190%;
+    overflow: hidden;
 }
 
 .modal-open {
