@@ -16,8 +16,9 @@
         <ul class="search-results">
             <ng-container *ngIf="focused">
                 <li *ngFor="let cocktail of cocktails$ | async" routerLink="{{cocktail.idDrink}}">
-                    <div class="search-result">
-                        {{cocktail.strDrink}}
+                    <div class="search-result" fxLayout="row">
+                        <img class="image"  [src]="cocktail.strDrinkThumb" alt="">
+                        <p>{{cocktail.strDrink}}</p>
                     </div>
                 </li>
             </ng-container>

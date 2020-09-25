@@ -35,7 +35,7 @@
     list-style-type: none;
     margin: 0;
     box-sizing: border-box;
-    max-height: 200px;
+    max-height: 450px;
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -45,12 +45,19 @@
 }
 
 .search-result {
-    padding-left: 40px;
-    height: 44px;
-    line-height: 44px;
+    padding-left: 10px;
+    height: 100px;
+    line-height: 100px;
     cursor: pointer;
 }
 
 .search-result:hover {
     background: #F5F5F5;
+}
+
+.search-result .image {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-right: 20px;
 }
