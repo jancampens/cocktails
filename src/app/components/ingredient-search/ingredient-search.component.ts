@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { CocktailService } from '../../services/cocktail.service';
 
@@ -16,11 +16,11 @@ export class IngredientSearchComponent {
   selectedIngredients = []
   focused = false;
   @Output() cocktails = new EventEmitter<string[]>();
-  
+
   constructor(
     private cocktailService: CocktailService
   ) { }
-  
+
   ngOnInit() {
     this.cocktailService.getIngredients()
       .subscribe(ingredients => {
@@ -28,12 +28,7 @@ export class IngredientSearchComponent {
       });
   }
 
-  onBlurEvent(event: any){
-    console.log(event.target.value);
-  }
-
-  setFocus(value) {
-    console.log('setfocus', value)
+  setFocus(value: boolean) {
     this.focused = value;
   }
 

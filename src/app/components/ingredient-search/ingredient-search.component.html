@@ -7,15 +7,15 @@
             class="search-box"
             (input)="search(searchBox.value)"
             (focus)="setFocus(true)"
-            (blur)="onBlurEvent($event)"
             autocomplete="off"
             placeholder="Search"
             tabindex="1"/>
 
         <ul class="search-results" *ngIf="focused">
             <li *ngFor="let ingredient of filteredIngredients">
-                <div class="search-result" (mousedown)="addIngredient(ingredient)">
-                    {{ingredient.strIngredient1}}
+                <div class="search-result" (mousedown)="addIngredient(ingredient)" fxLayout="row">
+                    <img class="image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient1 + '.png'">
+                    <p class="text">{{ingredient.strIngredient1}}</p>
                 </div>
             </li>
         </ul> 
@@ -26,7 +26,6 @@
             class="ingredient"
             *ngFor="let ingredient of selectedIngredients"
             (click)="removeIngredient(ingredient)"
-            fxFlex="noshrink"
             fxLayout="row"
         >
             <img class="image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient + '.png'" alt="">

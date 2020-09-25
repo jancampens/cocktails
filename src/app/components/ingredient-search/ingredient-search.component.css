@@ -6,6 +6,7 @@
 
 #search {
     margin-bottom: 40px;
+    outline-width: 0;
 }
 
 .title {
@@ -27,7 +28,7 @@
     margin-bottom: 5px;
 }
 
-#search-box:focus {
+.search-box:focus {
     outline-width: 0;
 }
 
@@ -36,7 +37,7 @@
     list-style-type: none;
     margin: 0;
     box-sizing: border-box;
-    max-height: 200px;
+    max-height: 400px;
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -45,9 +46,9 @@
 }
 
 .search-result {
-    padding-left: 40px;
-    height: 44px;
-    line-height: 44px;
+    padding-left: 20px;
+    height: 100px;
+    line-height: 100px;
     cursor: pointer;
 }
 
@@ -55,17 +56,24 @@
     background: #F5F5F5;
 }
 
+.search-result .image {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
 #ingredients {
     overflow-y: scroll;
 }
 
 .ingredient {
-    cursor: pointer;
-    box-sizing: border-box;
-    color: rgba(0, 0, 0, .87);
     height: 120px;
     line-height: 100px;
     padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: rgba(0, 0, 0, .87);
 }
 
 .ingredient:not(last) {
@@ -76,11 +84,11 @@
     background: #F5F5F5;
 }
 
-.image {
+.ingredient .image {
     height: 100%;
 }
 
-.label {
+.ingredient .label {
     font-size: 35px;
     font-weight: 100;
     margin-left: 20px;
