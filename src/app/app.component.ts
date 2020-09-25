@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { Cocktail } from './interfaces/cocktail';
 
@@ -13,26 +13,22 @@ export class AppComponent {
   view = 'cocktails';
   cocktails: Cocktail[];
 
-  @ViewChild('viewCocktails') viewCocktails: ElementRef;
-  @ViewChild('viewIngredients') viewIngredients: ElementRef;
-
   @HostListener('wheel', ['$event'])
-  onScroll(event:WheelEvent) {
-    if (event.deltaY > 0) {
-      this.view = 'cocktails'
-    } else {
-      this.view = 'ingredients'
-    }
-
-    this.switchView();
+  onScroll(event: WheelEvent) {
+      if (event.deltaY > 0) {
+        this.view = 'cocktails'
+      } else {
+        this.view = 'ingredients'
+      }
+      this.switchView();
   }
 
   switchView(): void {
     if (this.view === 'cocktails') {
-      this.viewIngredients.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({top: 1000000, behavior: 'smooth'});
       this.view = 'ingredients';
     } else {
-      this.viewCocktails.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({top: 0, behavior: 'smooth'});
       this.view = 'cocktails';
     }
   }
