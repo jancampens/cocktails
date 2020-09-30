@@ -15,7 +15,6 @@ import { CocktailService } from '../../services/cocktail.service';
 export class CocktailSearchComponent implements OnInit {
   cocktails$: Observable<Cocktail[]>;
   private searchTerms = new Subject<string>();
-  focused = true;
 
   constructor(
     private cocktailService: CocktailService
@@ -25,19 +24,11 @@ export class CocktailSearchComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  setFocus(value: boolean) {
-    this.focused = value;
-  }
-
   ngOnInit(): void {
-    
     this.cocktails$ = this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term: string) => this.cocktailService.searchCocktails(term)),
     );
-
-    
   }
-
 }
