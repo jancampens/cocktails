@@ -6,35 +6,34 @@
 
 .card {
   position: relative;
-  border: 1px solid #e0e0e0;
+  /* border: 1px solid #e0e0e0; */
   width: 250px;
   height: auto;
   margin-bottom: 40px;
   cursor: pointer;
   box-sizing: unset !important;
-  border-radius: 4px;
-  background: white;
+  /* border-radius: 4px; */
+  /* background: white; */
   height: auto;
+  transition: transform .2s;
 }
 
 .card:hover {
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
+  transform: scale(1.05, 1.05)
 }
 
 .card-image {
   background-size: cover;
   height: 250px;
   width: 100%;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
 }
 
 .card-header {
   box-sizing: border-box;
-  padding: 16px;
+  padding: 12px 0 12px 0;
 }
 
 .card-title {
   font-size: 20px;
-  color: black;
+  color: rgba(0, 0, 0, 0.87);
 }

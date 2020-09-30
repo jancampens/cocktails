@@ -16,7 +16,7 @@ export class IngredientSearchComponent {
   filteredIngredients: Ingredient[];
   ingredients: Ingredient[];
   // selectedIngredients = ['Light Rum', 'Lime Juice', 'Sugar'];
-  selectedIngredients = []
+  selectedIngredients = ['Vodka', 'Gin', 'Lime Juice']
   focused = false;
   cocktails:Cocktail[];
 
@@ -30,7 +30,7 @@ export class IngredientSearchComponent {
         this.ingredients = ingredients;
       });
 
-      // this.searchCocktails(this.selectedIngredients.join(','));
+      this.searchCocktails(this.selectedIngredients.join(','));
   }
 
   setFocus(value: boolean) {
