@@ -95,9 +95,10 @@
 }
 
 .ingredient .label {
-    font-size: 35px;
-    font-weight: 100;
+    font-size: 25px;
     margin-left: 20px;
+    height: 100px;
+    overflow: hidden;
 }
 
 .ingredient .close-icon {
@@ -111,7 +112,7 @@
 }
 
 .list {
-    margin-top: 65px;
+    margin-top: 80px;
 }
 
 .wrapper {
