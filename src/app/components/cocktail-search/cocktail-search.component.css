@@ -28,6 +28,7 @@
 .title {
     font-size: 140px;
     font-family: 'Amatic SC', cursive;
+    user-select: none;
 }
 
 .search-results {
@@ -48,6 +49,7 @@
     height: 100px;
     line-height: 100px;
     cursor: pointer;
+    user-select: none;
 }
 
 .search-result:hover {
