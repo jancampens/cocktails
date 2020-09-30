@@ -1,0 +1,23 @@
+.header {
+    height: 65px;
+    line-height: 65px;
+    position: absolute;
+    right: 0;
+}
+
+a {
+    margin: 0 40px 0 40px;
+    /* font-family: 'GM'; */
+    /* font-size: 28px; */
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    border-bottom: 1px solid black;
+}
+
+a.active {
+    border-bottom: 1px solid black;
+}

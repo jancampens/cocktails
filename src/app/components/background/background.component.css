@@ -16,12 +16,12 @@
 }
 
 #quote {
-    opacity: 0.9;
+    opacity: 0.8;
     width: 500px;
     line-height: 1.5;
     font-weight: 100;
     position: absolute;
-    right: 100px;
+    right: 0;
     bottom: 0;
     font-family: 'Gentium Book Basic', serif;
     z-index: -1;

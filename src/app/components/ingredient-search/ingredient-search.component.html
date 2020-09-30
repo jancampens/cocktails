@@ -1,37 +1,43 @@
-<div id="container" fxLayout="column">
-    <h1 class="title mat-display-4">Ingredients</h1>
-    
-    <div id="search" (focusout)="setFocus(false)" tabindex="0" >
-        <input
-            #searchBox
-            class="search-box"
-            (input)="search(searchBox.value)"
-            (focus)="setFocus(true)"
-            autocomplete="off"
-            placeholder="Search"
-            tabindex="1"/>
+<div class="wrapper" fxLayout="row">
+    <div id="container" fxLayout="column">
+        <h1 class="title mat-display-4">INGREDIENTS</h1>
+        
+        <div id="search" (focusout)="setFocus(false)" tabindex="0" >
+            <input
+                #searchBox
+                class="search-box"
+                (input)="search(searchBox.value)"
+                (focus)="setFocus(true)"
+                autocomplete="off"
+                placeholder="Search"
+                tabindex="1"/>
 
-        <ul class="search-results" *ngIf="focused">
-            <li *ngFor="let ingredient of filteredIngredients">
-                <div class="search-result" (mousedown)="addIngredient(ingredient)" fxLayout="row">
-                    <img class="image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient1 + '.png'">
-                    <p class="text">{{ingredient.strIngredient1}}</p>
-                </div>
-            </li>
-        </ul> 
-    </div>
+            <ul class="search-results" *ngIf="focused">
+                <li *ngFor="let ingredient of filteredIngredients">
+                    <div class="search-result" (mousedown)="addIngredient(ingredient)" fxLayout="row">
+                        <img class="image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient1 + '.png'">
+                        <p class="text">{{ingredient.strIngredient1}}</p>
+                    </div>
+                </li>
+            </ul> 
+        </div>
 
-    <div id="ingredients" fxLayout="column" fxGrow>
-        <div
-            class="ingredient"
-            *ngFor="let ingredient of selectedIngredients"
-            (click)="removeIngredient(ingredient)"
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
-        >
-            <img class="image"  [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient + '.png'" alt="">
-            <div fxFlex class="label">{{ingredient}}</div>
-            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        <div id="ingredients" fxLayout="column" fxGrow>
+            <div
+                class="ingredient"
+                *ngFor="let ingredient of selectedIngredients"
+                (click)="removeIngredient(ingredient)"
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+            >
+                <img class="image"  [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient + '.png'" alt="">
+                <div fxFlex class="label">{{ingredient}}</div>
+                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </div>
         </div>
     </div>
+
+    <app-cocktail-list class="list" [cocktails]="cocktails"></app-cocktail-list>
 </div>
+
+<router-outlet></router-outlet>

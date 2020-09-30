@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Cocktail } from '../../interfaces/cocktail';
 import { CocktailService } from '../../services/cocktail.service';
@@ -16,7 +17,8 @@ export class CocktailDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private cocktailService: CocktailService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private location: Location
   ) {
     this.renderer.addClass(document.body, 'modal-open');
   }
@@ -44,6 +46,10 @@ export class CocktailDetailComponent implements OnInit, OnDestroy {
           }
         }
       })
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

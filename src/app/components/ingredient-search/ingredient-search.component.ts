@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
+import { Observable, Subject } from 'rxjs';
+
 import { CocktailService } from '../../services/cocktail.service';
 
+import { Cocktail } from '../../interfaces/cocktail';
 import { Ingredient } from '../../interfaces/ingredient';
 
 @Component({
@@ -15,7 +18,7 @@ export class IngredientSearchComponent {
   // selectedIngredients = ['Light Rum', 'Lime Juice', 'Sugar'];
   selectedIngredients = []
   focused = false;
-  @Output() cocktails = new EventEmitter<string[]>();
+  cocktails:Cocktail[];
 
   constructor(
     private cocktailService: CocktailService
@@ -26,6 +29,8 @@ export class IngredientSearchComponent {
       .subscribe(ingredients => {
         this.ingredients = ingredients;
       });
+
+      // this.searchCocktails(this.selectedIngredients.join(','));
   }
 
   setFocus(value: boolean) {
@@ -44,6 +49,7 @@ export class IngredientSearchComponent {
     if (!this.selectedIngredients.includes(ingredient.strIngredient1)) {
       this.selectedIngredients.push(ingredient.strIngredient1);
       this.searchCocktails(this.selectedIngredients.join(','));
+      console.log('add')
     }
   }
 
@@ -52,7 +58,7 @@ export class IngredientSearchComponent {
     if (this.selectedIngredients.length > 0) {
       this.searchCocktails(this.selectedIngredients.join(','));
     } else {
-      this.cocktails.emit([])
+      this.cocktails = [];
     }
   }
 
@@ -60,9 +66,10 @@ export class IngredientSearchComponent {
     this.cocktailService.searchCocktailsByIngredients(ingredients)
       .subscribe(cocktails => {
         if (cocktails === 'None Found') {
-          this.cocktails.emit([])
+          this.cocktails = [];
         } else {
-          this.cocktails.emit(cocktails)
+          this.cocktails = cocktails;
+          console.log('cocktails', cocktails)
         }
       });
   }

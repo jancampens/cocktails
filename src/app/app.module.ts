@@ -13,7 +13,8 @@ import { CocktailSearchComponent } from './components/cocktail-search/cocktail-s
 import { IngredientSearchComponent } from './components/ingredient-search/ingredient-search.component';
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
 
-import {OverlayModule} from '@angular/cdk/overlay';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     CocktailSearchComponent,
     IngredientSearchComponent,
     CocktailListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
