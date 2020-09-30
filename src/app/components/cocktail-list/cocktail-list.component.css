@@ -16,6 +16,8 @@
   /* background: white; */
   height: auto;
   transition: transform .2s;
+  outline: none;
+  cursor: pointer;
 }
 
 .card:hover {
