@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <app-cocktail-list class="list" [cocktails]="cocktails"></app-cocktail-list>
+    <app-cocktail-list *ngIf="cocktails && cocktails.length > 0" class="list" [cocktails]="cocktails"></app-cocktail-list>
 </div>
 
 <router-outlet></router-outlet>
