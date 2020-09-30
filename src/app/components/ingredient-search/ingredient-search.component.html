@@ -1,4 +1,4 @@
-<div class="wrapper" fxLayout="row">
+<div class="wrapper" fxLayout="row" [ngClass]="selectedIngredients.length > 0 ? 'backdrop': ''">
     <div id="container" fxLayout="column">
         <h1 class="title mat-display-4">INGREDIENTS</h1>
         
