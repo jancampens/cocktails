@@ -67,6 +67,7 @@
     width: 50%;
     background-size: cover;
     border-radius: 0 10px 10px 0;
+    background-color: white;
 }
 
 .ingredient-open {
@@ -77,4 +78,34 @@
 
 .ingredient:hover > .ingredient-open {
     visibility: visible;
+}
+
+.spinnerbox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+}
+
+.spinner {
+    fill: transparent;
+    stroke: rgba(0, 0, 0, 0.8);
+    stroke-width: 10%;
+    stroke-dasharray: 220px;
+    animation-name: rotate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform-origin: center;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
