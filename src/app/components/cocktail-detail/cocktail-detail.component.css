@@ -43,11 +43,13 @@
     background: rgba(0, 0, 0, 0.03);
     padding: 10px;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 .ingredient-name {
     font-size: 24px;
     margin-bottom: 10px;
+    color: black;
 }
 
 .ingredient-measurement {
@@ -65,4 +67,14 @@
     width: 50%;
     background-size: cover;
     border-radius: 0 10px 10px 0;
+}
+
+.ingredient-open {
+    padding: 5px 5px 0 0;
+    visibility: hidden;
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.ingredient:hover > .ingredient-open {
+    visibility: visible;
 }

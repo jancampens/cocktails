@@ -5,13 +5,20 @@
             <div id="left" flex>
                 <h1 class="title">{{cocktail.strDrink}}</h1>
                 <p class="instructions">{{cocktail.strInstructions}}</p>
-                <div class="ingredient" *ngFor="let ingredient of ingredients" fxLayout="row">
+                <a
+                    class="ingredient"
+                    *ngFor="let ingredient of ingredients"
+                    fxLayout="row"                
+                    [href]="'https://en.wikipedia.org/wiki/' + ingredient.name"
+                    target="_blank"
+                >
                     <img class="ingredient-image" [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient.name + '.png'" alt="">
-                    <div fxLayout="column">
+                    <div fxLayout="column" fxFlex>
                         <p class="ingredient-name">{{ingredient.name}}</p>
                         <p class="ingredient-measurement">{{ingredient.measurement}}</p>
                     </div>
-                </div>
+                    <svg class="ingredient-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                </a>
             </div>
             <div id="right" flex [style.backgroundImage]="'url(' + cocktail.strDrinkThumb + ')'"></div>
         </div>
