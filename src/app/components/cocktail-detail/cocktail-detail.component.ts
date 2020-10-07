@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnDestroy, Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Cocktail } from '../../interfaces/cocktail';
 import { CocktailService } from '../../services/cocktail.service';
@@ -13,18 +12,23 @@ import { CocktailService } from '../../services/cocktail.service';
 export class CocktailDetailComponent implements OnInit, OnDestroy {
   @Input() cocktail: Cocktail;
   ingredients = [];
+  parentUrl: string;
 
   constructor(
     private route: ActivatedRoute,
     private cocktailService: CocktailService,
     private renderer: Renderer2,
-    private location: Location
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.renderer.addClass(document.body, 'modal-open');
   }
 
   ngOnInit(): void {
     this.getCocktail();
+    this.activatedRoute.parent.url.subscribe((urlPath) => {
+      this.parentUrl = urlPath[urlPath.length - 1].path;
+    })
   }
 
   ngOnDestroy() {
@@ -49,7 +53,6 @@ export class CocktailDetailComponent implements OnInit, OnDestroy {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate([this.parentUrl]);
   }
-
 }
