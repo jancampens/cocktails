@@ -1,21 +1,17 @@
 .container {
-  padding: 40px;
+  padding: 0px 40px 0 10px;
   overflow-y: auto;
   max-height: 100%;
 }
 
 .card {
   position: relative;
-  /* border: 1px solid #e0e0e0; */
   width: 250px;
   height: auto;
-  margin-bottom: 40px;
   cursor: pointer;
   box-sizing: unset !important;
-  /* border-radius: 4px; */
-  /* background: white; */
   height: auto;
-  transition: transform .2s;
+  transition: transform .1s ease-in-out;
   outline: none;
   cursor: pointer;
 }
@@ -32,10 +28,13 @@
 
 .card-header {
   box-sizing: border-box;
-  padding: 12px 0 12px 0;
+  padding: 16px 0 16px 0;
 }
 
 .card-title {
   font-size: 20px;
   color: rgba(0, 0, 0, 0.87);
+}
+.card.hidden {
+  visibility: hidden;
 }

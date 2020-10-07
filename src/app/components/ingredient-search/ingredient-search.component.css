@@ -3,16 +3,13 @@
 }
 
 .backdrop {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 #container {
     height: 100%;
     width: 400px;
     padding: 20px 20px 20px 20px;
-    /* border-right: 1px solid #fafafa;
-    border-left: 1px solid #fafafa; */
-    /* margin-left: 20px; */
 }
 
 #search {
@@ -93,10 +90,6 @@
     margin-bottom: 30px;
 }
 
-/* .ingredient:hover {
-    background: #F5F5F5;
-} */
-
 .ingredient .image {
     height: 100%;
 }
@@ -111,7 +104,6 @@
 .ingredient .close-icon {
     display: none;
     fill: rgba(0, 0, 0, 0.6);
-    /* margin-right: 20px; */
 }
 
 .ingredient:hover > .close-icon {
@@ -119,5 +111,5 @@
 }
 
 .list {
-    margin-top: 112px;
+    margin-top: 152px;
 }

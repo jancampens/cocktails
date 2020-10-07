@@ -15,8 +15,8 @@ import { Ingredient } from '../../interfaces/ingredient';
 export class IngredientSearchComponent {
   filteredIngredients: Ingredient[];
   ingredients: Ingredient[];
-  // selectedIngredients = ['Light Rum', 'Lime Juice', 'Sugar'];
-  selectedIngredients = ['Vodka', 'Gin', 'Lime Juice']
+  // selectedIngredients = ['Vodka', 'Gin', 'Lime Juice'];
+  selectedIngredients = ['Vodka', 'Gin']
   focused = false;
   cocktails:Cocktail[];
 
