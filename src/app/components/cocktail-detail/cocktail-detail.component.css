@@ -63,6 +63,10 @@
     margin-right: 10px;
 }
 
+.ingredient-description {
+    width: 100%;
+}
+
 #right {
     width: 50%;
     background-size: cover;
@@ -71,12 +75,20 @@
 }
 
 .ingredient-open {
-    padding: 5px 5px 0 0;
     visibility: hidden;
+    color: rgba(0, 0, 0, 0.6);
     fill: rgba(0, 0, 0, 0.6);
 }
 
-.ingredient:hover > .ingredient-open {
+.ingredient-open-text {
+    margin: 0;
+}
+
+.ingredient-open-icon {
+    margin-left: 5px;
+}
+
+.ingredient:hover > .ingredient-description > .ingredient-open {
     visibility: visible;
 }
 
