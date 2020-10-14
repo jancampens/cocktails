@@ -8,14 +8,14 @@
     opacity: 0.6;
     background-size: contain;
     background-repeat: no-repeat;
-    transition: opacity .5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .image.fade {
     opacity: 0;
 }
 
-#quote {
+.quote {
     opacity: 0.8;
     width: 500px;
     line-height: 1.5;
@@ -23,7 +23,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    font-family: 'Gentium Book Basic', serif;
+    font-family: "Gentium Book Basic", serif;
     z-index: -1;
 }
 
@@ -33,4 +33,18 @@
 
 .cite {
     font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .image {
+        background-position: center;
+    }
+
+    .text {
+        color: red;
+    }
+
+    .quote {
+        visibility: hidden;
+    }
 }

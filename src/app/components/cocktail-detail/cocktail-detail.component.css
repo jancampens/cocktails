@@ -25,7 +25,7 @@
     border-radius: 10px 0 0 10px;
 }
 
-.title {
+#left .title {
     font-family: "Amatic SC", cursive;
     font-size: 60px;
     line-height: 60px;
@@ -119,5 +119,74 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    background: white;
+}
+
+.header .title {
+    margin-bottom: 0px;
+    font-size: 21px;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.header .close {
+    padding: 10px;
+    fill: #787779;
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        transform: none;
+    }
+
+    #left {
+        width: 100%;
+        height: 50%;
+        padding: 20px;
+        border-radius: 0px;
+    }
+
+    #right {
+        width: 100%;
+        height: 50%;
+        border-radius: 0px;
+    }
+
+    .ingredient {
+        height: 100px;
+        padding: 0px;
+        background: none;
+        margin-bottom: 0px;
+    }
+
+    .ingredient:hover {
+        background-color: #F5F5F5;
+    }
+
+    .ingredient-image {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+    }
+
+    .ingredient-name {
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+
+    .ingredient-measurement {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.54);
+        margin-bottom: 0px;
     }
 }

@@ -1,4 +1,4 @@
-<div class="wrapper" fxLayout="row" [ngClass]="selectedIngredients.length > 0 ? 'backdrop': ''">
+<div class="wrapper" fxLayout.xs="column" fxLayout.gt-xs="row" [ngClass]="selectedIngredients.length > 0 ? 'backdrop': ''">
     <div id="container" fxLayout="column">
         <h1 class="title mat-display-4">INGREDIENTS</h1>
         
@@ -37,7 +37,13 @@
         </div>
     </div>
 
-    <app-cocktail-list *ngIf="cocktails && cocktails.length > 0" class="list" [cocktails]="cocktails"></app-cocktail-list>
+    <app-cocktail-list
+        *ngIf="cocktails && cocktails.length > 0"
+        class="list"
+        [cocktails]="cocktails"
+        fxFill
+    >
+    </app-cocktail-list>
 </div>
 
 <router-outlet></router-outlet>
