@@ -1,16 +1,31 @@
+<!--  -->
+    <!--  -->
+    <!-- 
+    fxLayoutAlign="space-around stretch" -->
 <div
     class="container"
-    fxLayoutGap.gt-xs="20px grid"
-    fxLayoutGap.xs="2px grid"
     fxLayout="row wrap"
+    fxLayoutGap.xs="16px grid"
+    fxLayoutGap.gt-xs="20px grid"
     fxLayoutAlign="space-around stretch"
 >
-    <div class="card" *ngFor="let cocktail of cocktails" routerLink="{{cocktail.idDrink}}" fxLayout="column">
+    <div
+        class="card"
+        *ngFor="let cocktail of cocktails"
+        routerLink="{{cocktail.idDrink}}"
+        fxLayout="column"
+        fxFlex.gt-lg="20"
+        fxFlex.lg="20"
+        fxFlex.md="25"
+        fxFlex.sm="30"
+        fxFlex.xs="50"
+    >
         <div class="card-image" [style.backgroundImage]="'url(' + cocktail.strDrinkThumb + ')'"></div>
         <div class="card-header">
             <span class="card-title">{{cocktail.strDrink}}</span>
         </div>
     </div>
+
     <!-- empty cards to fix flex layout issues -->
     <div class="card hidden"></div>
     <div class="card hidden"></div>

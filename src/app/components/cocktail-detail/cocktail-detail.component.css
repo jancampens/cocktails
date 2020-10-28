@@ -126,6 +126,7 @@
     height: 70px;
     width: 100%;
     background: white;
+    border-bottom: 1px solid #E0DEE0;
 }
 
 .header .title {
@@ -151,14 +152,14 @@
 
     #left {
         width: 100%;
-        height: 50%;
+        height: 60%;
         padding: 20px;
         border-radius: 0px;
     }
 
     #right {
         width: 100%;
-        height: 50%;
+        height: 40%;
         border-radius: 0px;
     }
 
