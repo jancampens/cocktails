@@ -136,9 +136,19 @@
     font-weight: 500;
 }
 
-.header .close {
+.header .close-s {
     padding: 10px;
     fill: #787779;
+    cursor: pointer;
+}
+
+.close-l {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    fill: white;
+    padding: 10px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
